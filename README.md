@@ -1,7 +1,5 @@
 # Campus Study Room Finder — Clean Senior Design Example
 
-This is the **clean starting state** for the senior-design GitHub example. It intentionally does **not** contain the later `floor` enhancement.
-
 The repository demonstrates the complete engineering workflow:
 
 **Issue → Project planning → branch → tests → implementation/documentation → Pull Request → review/checks → merge → Done**
@@ -52,9 +50,3 @@ At each deadline create and push an annotated tag:
 - `iteration-3-submission`
 
 Do not move/delete a submitted tag. The tag freezes repository content; LMS snapshots preserve the GitHub Project/Issue state at the deadline.
-
-## Example Setup
-1. Run `pytest -q` to establish a green baseline.
-2. Run `bash setup-student-github.sh` to create/reuse course labels, Project fields, and views.
-3. Run `bash import-example-records.sh` to create/reuse the fictional example Issues.
-4. Create the **floor enhancement** Issue yourself and demonstrate Issue → branch/tests → PR → merge → Done.
