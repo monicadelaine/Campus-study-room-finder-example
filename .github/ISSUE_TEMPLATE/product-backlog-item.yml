@@ -23,10 +23,7 @@ body:
     id: context
     attributes:
       label: Context / Constraints
-      placeholder: | 
-      - What does the developer need to know before starting? 
-      - Known constraints, assumptions, dependencies, and unresolved design questions. 
-      - Do not prescribe an implementation unless the implementation itself is a requirement.
+      placeholder: Known constraints, assumptions, dependencies, and unresolved design questions. 
   - type: textarea
     id: testing
     attributes:
