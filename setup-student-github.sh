@@ -91,8 +91,15 @@ view_exists() {
     --jq ".data.node.views.nodes[]? | select(.name == \"$name\") | .name" | head -n 1
 }
 
-OWNER_TYPE="$(gh api graphql -f query='query($login:String!){organization(login:$login){login} user(login:$login){login}}' \
-  -f login="$OWNER" --jq 'if .data.organization then "org" else "user" end')"
+# Determine whether the Project owner is a personal account or organization.
+# Querying both GraphQL Organization and User types by the same login causes GitHub
+# to return an error when the login is a personal account, so use the REST user endpoint.
+OWNER_ACCOUNT_TYPE="$(gh api "users/$OWNER" --jq '.type')"
+if [[ "$OWNER_ACCOUNT_TYPE" == "Organization" ]]; then
+  OWNER_TYPE="org"
+else
+  OWNER_TYPE="user"
+fi
 
 create_view() {
   local name="$1" layout="$2" filter="$3"
