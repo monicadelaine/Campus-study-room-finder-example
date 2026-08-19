@@ -23,6 +23,7 @@ body:
     id: context
     attributes:
       label: Context / Constraints
+      placeholder: Known constraints, assumptions, dependencies, and unresolved design questions. 
   - type: textarea
     id: testing
     attributes:
